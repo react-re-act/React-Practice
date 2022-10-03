@@ -7,6 +7,7 @@ function App() {
   let [글제목, 글제목변경] = useState(['남자 코트 추천','강남 우동맛집', '파이썬독학']); //destructuring 변수생성 문법
   let [따봉,따봉변경] = useState([0,0,0]); //오른쪽은 state변경함수
   let [modal,setModal] = useState(false);
+  let [title,setTitle] = useState(0);
 
   //자동렌더링
   return(
@@ -47,8 +48,13 @@ function App() {
         })
         
       }
+      <div>
+      <button onClick={()=>{setTitle(0)}}>글제목0</button>
+      <button onClick={()=>{setTitle(1)}}>글제목1</button>
+      <button onClick={()=>{setTitle(2)}}>글제목2</button>
+      </div>
       {
-      modal == true ?<Modal 글제목 = {글제목} 글제목변경 = {글제목변경}/>: null
+      modal == true ?<Modal title = {title} 글제목 = {글제목} 글제목변경 = {글제목변경}/>: null
       }
       </>
   )
@@ -56,14 +62,12 @@ function App() {
 
 function Modal(props) {
   return (
-    <div className="modal" style = {{background: props.color}}>
-        <h4>{props.글제목[0]}</h4>
+    <div className="modal" >
+        <h4>{ props.글제목[props.title] }</h4>
         <p>날짜</p>
         <p>상세내용</p>
         <button onClick = {()=>{
-          let copy = [...props.글제목];
-          copy[0] = '여자 코트 추천';
-          props.글제목변경(copy);
+          props.글제목변경('여자코트추천','강남우동맛집','파이썬독학')
         }}>글수정</button>
       </div>
   )
