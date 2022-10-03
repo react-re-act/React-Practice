@@ -56,10 +56,11 @@ function App() {
       {
       modal == true ?<Modal title = {title} 글제목 = {글제목} 글제목변경 = {글제목변경}/>: null
       }
+      
       </>
   )
 }
-
+//스터디 범위까지완료!
 function Modal(props) {
   return (
     <div className="modal" >
