@@ -3,7 +3,7 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
-  let [date, b] = useState(['2월 17일 발행','2월 17일 발행','2월 17일 발행']);
+  
   let [글제목, 글제목변경] = useState(['남자 코트 추천','강남 우동맛집', '파이썬독학']); //destructuring 변수생성 문법
   let [따봉,따봉변경] = useState([0,0,0]); //오른쪽은 state변경함수
   let [modal,setModal] = useState(false);
@@ -42,7 +42,7 @@ function App() {
               copy[i]+=1;
               따봉변경(copy);
             } }>👍</span> {따봉[i]}</h4>
-            <p>{date[i]}</p>
+            <p>2월 17일 발행</p>
           </div>
           )  
         })
